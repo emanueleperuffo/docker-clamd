@@ -1,4 +1,9 @@
 #!/bin/sh
 set -e
 
-exec gosu clamav freshclam --checks=$FRESHCLAM_CHECKS
+# Wait until clamd is started. Useful for the 1st download only when the clamd service runs freshclam
+while [ ! -e "/var/run/clamav/clamd.ctl" ]; do
+	sleep 10
+done
+
+exec gosu clamav freshclam -d --checks=$FRESHCLAM_CHECKS

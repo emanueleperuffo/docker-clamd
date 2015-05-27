@@ -1,4 +1,9 @@
 #!/bin/sh
 set -e
 
+# Initialise the virus database
+if [ ! -e "/var/lib/clamav/main.cvd" ]; do
+	gosu clamav freshclam
+fi
+
 exec gosu clamav clamd
