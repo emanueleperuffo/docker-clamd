@@ -1,4 +1,4 @@
-NAME = emanueleperuffo/clamsmtp
+NAME = emanueleperuffo/clamd
 VERSION = 1
 
 .PHONY: all build test release
