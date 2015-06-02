@@ -2,7 +2,7 @@
 set -e
 
 # Initialise the virus database
-if [ ! -e "/var/lib/clamav/main.cvd" ]; do
+if [ ! -e "/var/lib/clamav/main.cvd" ]; then
 	gosu clamav freshclam
 fi
 
